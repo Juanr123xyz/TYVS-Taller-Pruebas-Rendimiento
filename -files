@@ -1,0 +1,10 @@
+[33mcommit 614c3de4020f17677bf7a87cc8faf32b6e614f90[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31mgitlab/main[m[33m)[m
+Merge: cb73a12 85f3d60
+Author: Juanes <juanestebanramirezhermosa@email.com>
+Date:   Sat May 9 16:23:21 2026 -0500
+
+    Add GitLab CI configuration
+
+ .gitlab-ci.yml |  28 [32m++++++++++++++++[m
+ README.md      | 103 [32m+++++++++++++++++++++++++++++++++++++++++++++++[m[31m----------[m
+ 2 files changed, 113 insertions(+), 18 deletions(-)
