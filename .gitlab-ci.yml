@@ -1,0 +1,28 @@
+﻿stages:
+  - build
+  - test
+
+build_job:
+  stage: build
+  script:
+    - echo "Building the project..."
+
+performance_tests:
+  stage: test
+  image: ubuntu:22.04
+  before_script:
+    - apt-get update -q
+    - apt-get install -y gnupg curl software-properties-common
+    - curl -s https://dl.k6.io/key.gpg | apt-key add -
+    - echo "deb https://dl.k6.io/deb stable main" | tee /etc/apt/sources.list.d/k6.list
+    - apt-get update -q
+    - apt-get install -y k6
+  script:
+    - echo "Running performance tests..."
+    - export BASE_URL=
+    - export SCENARIO=baseline
+    - k6 run perf/scripts/register_voter_k6.js -o json=perf/results/baseline.json
+  artifacts:
+    paths:
+      - perf/results/
+    expire_in: 7 days
